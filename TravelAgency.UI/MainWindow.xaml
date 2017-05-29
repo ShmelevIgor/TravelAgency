@@ -1,0 +1,45 @@
+﻿<Window x:Class="TravelAgency.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:local="clr-namespace:TravelAgency.UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Button Name="searchButton" Grid.Column="0" Grid.Row="0" Margin="5px" Click="searchButton_Click">Поиск</Button>
+        <Button Name="addButton" Grid.Column="0" Grid.Row="1" Margin="5px" Click="addButton_Click">Добавить</Button>
+        <Button Name="UpdateButton" Grid.Column="0" Grid.Row="2" Margin="5px" Click="UpdateButton_Click" IsEnabled="False">Редактировать</Button>
+        <Button Name="deleteButton" Grid.Column="0" Grid.Row="3" Margin="5px" Click="deleteButton_Click" IsEnabled="False">Удалить</Button>
+        <DataGrid Grid.Column="1" Grid.RowSpan="4" Margin="5px" x:Name="toursGrid" AutoGenerateColumns="False" SelectionChanged="toursGrid_SelectionChanged" CanUserAddRows="False" RowHeaderWidth="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Направление" Width="2*" Binding="{Binding Direction}"/>
+                <DataGridTextColumn Header="Туда" Width="*" Binding="{Binding ToDate}"/>
+                <DataGridTextColumn Header="Обратно" Width="*" Binding="{Binding FromDate}"/>
+                <DataGridTextColumn Header="Отель" Width="1.5*" Binding="{Binding Hotel}"/>
+                <DataGridTextColumn Header="Рейтинг" Width="*" Binding="{Binding Rating}"/>
+                <DataGridTextColumn Header="Цена" Width="*" Binding="{Binding Price}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Column="1" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Name="showAllButton" Grid.Column="0" Margin="5" Click="showAllButton_Click">Показать все туры</Button>
+            <Button Name="saveChangesButton" Grid.Column="1" Margin="5" Click="saveChangesButton_Click">Сохранить изменения</Button>
+        </Grid>
+    </Grid>
+</Window>
